@@ -17,7 +17,7 @@ export default function TodoForm({ addTodo, todos }) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const isRepeat = todos.some((todo) => todo.text === text);
+        const isRepeat = todos.some((todo) => todo.text.toUpperCase() === text.toUpperCase());
         if (!isRepeat) {
             addTodo(text);
             setText('');

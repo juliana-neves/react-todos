@@ -43,16 +43,29 @@ export default function TodoList() {
 
     return (
         <Box sx={{
-            display: 'flex', justifyContent: 'center', flexDirection: 'column', minHeight:"80vh", alignItems: 'center', m: 3
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            minHeight: "80vh",
+            alignItems: 'center',
+            m: 3
         }}>
             <Typography variant="h4" component="h1">
                 Todos
             </Typography>
-            <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <Box sx={{
+                width: '100%',
+                maxWidth: 360,
+                bgcolor: 'background.paper'
+            }}>
                 <List>
                     {todos.map((todo) => {
                         return (
-                            <TodoItem todo={todo} key={todo.id} remove={removeTodo} toggle={() => toggleTodo(todo.id)} />
+                            <TodoItem todo={todo}
+                                key={todo.id}
+                                remove={removeTodo}
+                                toggle={() => toggleTodo(todo.id)}
+                            />
                         );
                     })}
                 </List>

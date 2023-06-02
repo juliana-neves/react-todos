@@ -16,7 +16,9 @@ export default function TodoItem({ todo, remove, toggle }) {
     return (
         <ListItem
             secondaryAction={
-                <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
+                <IconButton edge="end"
+                aria-label="comments"
+                onClick={removeTodo}>
                     <DeleteIcon />
                 </IconButton>
             }
@@ -33,7 +35,9 @@ export default function TodoItem({ todo, remove, toggle }) {
                         onChange={(toggle)}
                     />
                 </ListItemIcon>
-                <ListItemText id={todo.id} primary={todo.text} />
+                <ListItemText id={todo.id}
+                primary={todo.text}
+                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}/>
             </ListItemButton>
         </ListItem>
     );
