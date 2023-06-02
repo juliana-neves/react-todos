@@ -58,7 +58,7 @@ export default function TodoList() {
                 </List>
             </Box>
             <Box sx={{ mt: 'auto' }}>
-                <TodoForm addTodo={addTodo} />
+                <TodoForm addTodo={addTodo} todos={todos} />
             </Box>
         </Box >
     );
