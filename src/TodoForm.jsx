@@ -4,17 +4,21 @@ import SendIcon from '@mui/icons-material/Send';
 import { InputAdornment } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { useState } from 'react';
-import './TodoForm.css' ;
+import './TodoForm.css';
 
-export default function TodoForm({addTodo}) {
+export default function TodoForm({ addTodo }) {
     const [text, setText] = useState("");
+    const [isEmpty, setIsEmpty] = useState(true);
+
     const handleChange = (evt) => {
-        setText(evt.target.value);
+        const inputValue = setText(evt.target.value);
+        setIsEmpty(inputValue === '')
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTodo(text);
-        setText('');
+            addTodo(text);
+            setText('');
+            setIsEmpty(true);
     }
 
     return (
@@ -29,7 +33,7 @@ export default function TodoForm({addTodo}) {
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
-                                <IconButton aria-label="create todo" edge="end" type="submit">
+                                <IconButton aria-label="create todo" edge="end" type="submit"  disabled={isEmpty}>
                                     <SendIcon />
                                 </IconButton>
                             </InputAdornment>
